@@ -1,13 +1,13 @@
 import 'package:chat_app/Auth/auth_gate.dart';
-import 'package:chat_app/Themes/theme.dart';
 import 'package:chat_app/Themes/theme_provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:provider/provider.dart';
-
-import 'Auth/login_or_register.dart';
+import 'package:chat_app/Pages/api_key.dart';
 
 Future<void> main() async {
+  Gemini.init(apiKey: apiKey);
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(
