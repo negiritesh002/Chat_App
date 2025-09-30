@@ -43,10 +43,18 @@ dependencies:
   dash_chat_2: ^0.0.21
   flutter_gemini: ^3.0.0
   image_picker: ^1.2.0
+  flutter_native_splash: ^2.4.6
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+flutter_native_splash:
+  color: "#FFFFFF" # background color
+  image: assets/images/chat_bot_2.jpg # your logo
+  android: true
+  ios: true
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -69,6 +77,8 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
    - assets/images/chat_bot_2.jpg
+   - assets/images/assistance.gif
+   - assets/images/Chat_Shimmer.gif
 #    - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

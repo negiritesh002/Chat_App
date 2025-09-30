@@ -67,7 +67,7 @@ class SettingPage extends StatelessWidget {
                     onTap: () => _launchUrl("https://www.instagram.com"),
                     child: Container(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(16),
+                        borderRadius: BorderRadius.circular(40),
                         color: Colors.purple[400],
                       ),
                       child: Column(
@@ -92,7 +92,7 @@ class SettingPage extends StatelessWidget {
                     onTap: () => _launchUrl("https://www.facebook.com"),
                     child: Container(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(16),
+                        borderRadius: BorderRadius.circular(40),
                         color: Colors.blue[600],
                       ),
                       child: Column(

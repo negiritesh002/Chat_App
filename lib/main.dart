@@ -1,4 +1,5 @@
 import 'package:chat_app/Auth/auth_gate.dart';
+import 'package:chat_app/Components/splash_screen.dart';
 import 'package:chat_app/Themes/theme_provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: AuthGate(),
+      home: SplashScreen(),
       theme: Provider.of<ThemeProvider>(context).themeData,
     );
   }

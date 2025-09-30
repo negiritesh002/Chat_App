@@ -21,27 +21,27 @@ class _LoginPageState extends State<LoginPage> {
 
   void login() async {
     setState(() {
-      isLoading = true; // show progress indicator
+      isLoading = true;
     });
 
-    // Show the progress indicator for 3 seconds
     await Future.delayed(const Duration(seconds: 2));
 
     setState(() {
-      isLoading = false; // hide progress indicator
+      isLoading = false;
     });
 
     final authService = AuthService();
 
     try {
       await authService.signInWithEmailPassword(
-          _emailcontroller.text, _passwordcontroller.text);
+        _emailcontroller.text,
+        _passwordcontroller.text,
+      );
     } catch (e) {
       showDialog(
-          context: context,
-          builder: (context) => AlertDialog(
-            title: Text(e.toString()),
-          ));
+        context: context,
+        builder: (context) => AlertDialog(title: Text(e.toString())),
+      );
     }
   }
 
@@ -54,14 +54,20 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.message,
-                  size: 60, color: Theme.of(context).colorScheme.primary),
-              const SizedBox(height: 50),
+              Center(
+                child: Image.asset(
+                  "assets/images/Chat_Shimmer.gif",
+                  width: 200,
+                  height: 200,
+                ),
+              ),
+              const SizedBox(height: 20),
               Text(
                 "Welcome back, you've been missed!",
                 style: TextStyle(
-                    color: Theme.of(context).colorScheme.primary,
-                    fontSize: 17),
+                  color: Theme.of(context).colorScheme.primary,
+                  fontSize: 17,
+                ),
               ),
               const SizedBox(height: 25),
               Padding(
@@ -86,10 +92,7 @@ class _LoginPageState extends State<LoginPage> {
               // Show either the button or the loading indicator
               isLoading
                   ? const CircularProgressIndicator()
-                  : Mybutton(
-                onTap: login,
-                text: "Log in",
-              ),
+                  : Mybutton(onTap: login, text: "Log in"),
 
               const SizedBox(height: 15),
               Row(
@@ -97,19 +100,22 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   Text(
                     "Not a member?",
-                    style: TextStyle(color: Theme.of(context).colorScheme.primary),
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
                   ),
                   GestureDetector(
                     onTap: widget.onTap,
                     child: Text(
                       "Register Now",
                       style: TextStyle(
-                          color: Theme.of(context).colorScheme.primary,
-                          fontWeight: FontWeight.bold),
+                        color: Theme.of(context).colorScheme.primary,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  )
+                  ),
                 ],
-              )
+              ),
             ],
           ),
         ),

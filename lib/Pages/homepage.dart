@@ -75,17 +75,18 @@ class _HomepageState extends State<Homepage> {
             child: GestureDetector(
               onTap: () => _onChatBotTap(context),
               child: Container(
-                width: 80,
-                height: 80,
+                width: 70,
+                height: 70,
                 decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
                   shape: BoxShape.rectangle,
-                  color: Colors.transparent,
+                  color: Colors.black54,
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(4),
                   child: Image.asset(
-                    "assets/images/chat_bot_2.jpg",
-                    fit: BoxFit.contain,
+                    "assets/images/assistance.gif",
+                    fit: BoxFit.fill,
                   ),
                 ),
               ),

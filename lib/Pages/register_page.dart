@@ -17,17 +17,17 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController _emailcontroller = TextEditingController();
   final TextEditingController _passwordcontroller = TextEditingController();
   final TextEditingController _confirmpasswordcontroller =
-  TextEditingController();
+      TextEditingController();
 
   bool isLoading = false;
 
   void register() async {
     if (_passwordcontroller.text != _confirmpasswordcontroller.text) {
       showDialog(
-          context: context,
-          builder: (context) => const AlertDialog(
-            title: Text("Passwords don't match!"),
-          ));
+        context: context,
+        builder: (context) =>
+            const AlertDialog(title: Text("Passwords don't match!")),
+      );
       return;
     }
 
@@ -46,13 +46,14 @@ class _RegisterPageState extends State<RegisterPage> {
 
     try {
       await _auth.signupWithEmailPassword(
-          _emailcontroller.text, _passwordcontroller.text);
+        _emailcontroller.text,
+        _passwordcontroller.text,
+      );
     } catch (e) {
       showDialog(
-          context: context,
-          builder: (context) => AlertDialog(
-            title: Text(e.toString()),
-          ));
+        context: context,
+        builder: (context) => AlertDialog(title: Text(e.toString())),
+      );
     }
   }
 
@@ -65,14 +66,20 @@ class _RegisterPageState extends State<RegisterPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.message,
-                  size: 60, color: Theme.of(context).colorScheme.primary),
-              const SizedBox(height: 50),
+              Center(
+                child: Image.asset(
+                  "assets/images/Chat_Shimmer.gif",
+                  width: 200,
+                  height: 200,
+                ),
+              ),
+              const SizedBox(height: 20),
               Text(
                 "Let's create an account for you",
                 style: TextStyle(
-                    color: Theme.of(context).colorScheme.primary,
-                    fontSize: 17),
+                  color: Theme.of(context).colorScheme.primary,
+                  fontSize: 17,
+                ),
               ),
               const SizedBox(height: 25),
               Padding(
@@ -106,10 +113,7 @@ class _RegisterPageState extends State<RegisterPage> {
               // Show loader or Register button
               isLoading
                   ? const CircularProgressIndicator()
-                  : Mybutton(
-                onTap: register,
-                text: "Register",
-              ),
+                  : Mybutton(onTap: register, text: "Register"),
 
               const SizedBox(height: 15),
               Row(
@@ -117,19 +121,22 @@ class _RegisterPageState extends State<RegisterPage> {
                 children: [
                   Text(
                     "Already have an account?",
-                    style: TextStyle(color: Theme.of(context).colorScheme.primary),
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
                   ),
                   GestureDetector(
                     onTap: widget.onTap,
                     child: Text(
                       "Log in Now",
                       style: TextStyle(
-                          color: Theme.of(context).colorScheme.primary,
-                          fontWeight: FontWeight.bold),
+                        color: Theme.of(context).colorScheme.primary,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  )
+                  ),
                 ],
-              )
+              ),
             ],
           ),
         ),
